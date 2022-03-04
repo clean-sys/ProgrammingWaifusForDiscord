@@ -17,7 +17,7 @@ def getAuthorizationToken():
         for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
                 match = re.search(r'mfa\.[\w-]{84}', line)
                 if match:
-                    return re.search(r'mfa\.[\w-]{84}', line).group()
+                    return match.group()
                     
     return ""
 
